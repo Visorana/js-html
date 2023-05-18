@@ -2,19 +2,14 @@ img = document.getElementById('cookie');
 click = document.getElementById('clicker__counter');
 outspeed = document.getElementById('speed__counter');
 
-var timerStarted = false
+let timerStarted = false;
+let lastClick = Date.now();
 
 img.onclick = () => {
-    if (!timerStarted) {
-        start = Date.now();
-        timerStarted = true;
-    } else {
-        end = Date.now();
-        speed = 1 / ((end-start)/1000);
-        outspeed.textContent = speed.toFixed(2);
-        timerStarted = false;
-    }
+    speed = 1 / ((Date.now()-lastClick) / 1000);
+    outspeed.textContent = speed.toFixed(2);
     img.classList.toggle('big-cookie');
     clickCount = Number(click.textContent) + 1;
     click.textContent = clickCount;
+    lastClick = Date.now();
 }
