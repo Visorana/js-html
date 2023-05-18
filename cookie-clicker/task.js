@@ -1,8 +1,7 @@
-img = document.getElementById('cookie');
-click = document.getElementById('clicker__counter');
-outspeed = document.getElementById('speed__counter');
+const img = document.getElementById('cookie');
+const click = document.getElementById('clicker__counter');
+const outspeed = document.getElementById('speed__counter');
 
-let timerStarted = false;
 let lastClick = Date.now();
 
 img.onclick = () => {
